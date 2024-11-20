@@ -3,20 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <title>Проверь свой словарный запас!</title>
-  <link rel="stylesheet" href="./words_style.css"/>
+  <link rel="stylesheet" href="/static/css/words.css">
+  <link rel="shortcut icon" href="/static/image/abc.ico" type="image/x-icon">
 </head>
 <body>
 </body>
     <div class="task">
     <div class="english_word">
-        <h3>{{number}}. {{english_word}}</h3>
+        <h3 style="user-select: none;">{{number}}. {{english_word}}</h3>
     </div>
     <div class="translates">
-        <form name="Выбери верный вариант перевода:", method="post", action="/words/">
-            <input class="word_1" type="submit" name="word1" value="{{translate1}}">
-            <input class="word_2" type="submit" name="word2" value="{{translate2}}">
-            <input class="word_3" type="submit" name="word3" value="{{translate3}}">
-            <input class="word_4" type="submit" name="word4" value="{{translate4}}">
+        <form class="btn-group", name="Выбери верный вариант перевода:", method="post", action="/words/">
+            <input class="btn btn-primary" type="submit" name="word1" value="{{translate1}}">
+            <input class="btn btn-primary" type="submit" name="word2" value="{{translate2}}">
+            <input class="btn btn-primary" type="submit" name="word3" value="{{translate3}}">
+            <input class="btn btn-primary" type="submit" name="word4" value="{{translate4}}">
         </form>
     </div>
     </div>
