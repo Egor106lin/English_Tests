@@ -34,14 +34,12 @@ def words_page():
     elif cookie_value_dictionary['state'] == 'words':
         if cookie_value_dictionary['question'] < 100:
             context_list = []
-            answer = []
             for key in context:
                 context_list.append(key)
             for name in ['word1', 'word2', 'word3', 'word4']:
-                answer.append(request.form.get(name))
-            print(answer)
-            if cookie_value_dictionary['question'] != 0:
-                check_answer(cookie_value_dictionary, answer)
+                if name != None:
+                    answer = request.form.get(name)
+            cookie_value_dictionary = check_answer(cookie_value_dictionary, answer)
             dictionary_list = context[context_list[cookie_value_dictionary['question']]]
             exercise = {
                 'number': cookie_value_dictionary['question'] + 1,

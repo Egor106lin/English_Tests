@@ -1,21 +1,16 @@
 import unittest
 from words_list import words
 
-def check_answer(cookie_value_dictionary: dict, answer: list) -> dict:
+def check_answer(cookie_value_dictionary: dict, answer: str) -> dict:
     '''This function gets cookie value and users's answer, returns cookie value
     with 'count' +1 if the answer is correct, and returns it without changes if
     the answer is uncorrect'''
     count = cookie_value_dictionary['count']
     question = cookie_value_dictionary['question']
-    for i in answer:
-        if i == None:
-            continue
-        elif i != None:
-            user_answer = answer[i]
     values = []
     for value in words.values():
         values.append(value)
-    if user_answer == values[question][1]:
+    if answer == values[question][1]:
         count += 1
     cookie_value_dictionary['count'] = count
     return cookie_value_dictionary
