@@ -27,5 +27,5 @@ while len(list_of_keys) > 0:
     for i in [a, b, c, d]:
         choose.append(i)
     translate1, translate2, translate3, translate4 = choose[0], choose[1], choose[2], choose[3]
-    value = [english_word, translate1, translate2, translate3, translate4]
+    value = [english_word, translate1, translate2, translate3, translate4, [english_word][1]]
     context[english_word] = value
