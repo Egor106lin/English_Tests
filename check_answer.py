@@ -1,7 +1,6 @@
 import unittest
 from words_list import words
 
-import word_exercise
 
 def check_answer(cookie_value_dictionary: dict, answer: str) -> dict:
     '''This function gets cookie value and users's answer, returns cookie value
@@ -9,11 +8,9 @@ def check_answer(cookie_value_dictionary: dict, answer: str) -> dict:
     the answer is incorrect'''
     count = cookie_value_dictionary['count']
     question = cookie_value_dictionary['question']
-    print(question)
     values = []
     for value in words.values():
         values.append(value)
-    print(values)
     if answer == values[question][1]:
         count += 1
     cookie_value_dictionary['count'] = count
