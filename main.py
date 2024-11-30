@@ -7,7 +7,7 @@ from word_exercise import create_random_words_for_user
 from cookie_set import from_cookie_to_dict, from_dict_to_cookie
 from check_answer import check_answer
 
-from words_list import english_excercices
+from words_list import english_excercices, answers_eng_keys
 
 app = Flask(__name__)
                     
@@ -48,13 +48,13 @@ def words():
     if request.method == 'POST':
         if cookie_value_dictionary['question'] >= 10:
             return redirect(url_for('finish'))
-        elif cookie_value_dictionary['question'] < 10:            
-            # for name in ['word1', 'word2', 'word3', 'word4']:
-            #   answer = request.form.get(name)
-            #   if answer != None:
-            #       cookie_value_dictionary = check_answer(cookie_value_dictionary, answer, context)
-            #   else:
-            #       continue            
+        elif cookie_value_dictionary['question'] < 10:   
+            my_seed = cookie_value_dictionary['seed']
+            question =  cookie_value_dictionary['question']         
+            user_list_for_check = create_random_words_for_user(my_seed, english_excercices)
+            answer = request.form.get('word')
+            if check_answer(question, answer, answers_eng_keys, user_list_for_check):
+                cookie_value_dictionary['count'] += 1
             cookie_value_dictionary['question'] += 1
             res = redirect(url_for('words'))
             res.set_cookie('universal', from_dict_to_cookie(cookie_value_dictionary))
@@ -64,7 +64,7 @@ def words():
             return redirect(url_for('finish'))
         else:
             my_seed = cookie_value_dictionary['seed']
-            question =  cookie_value_dictionary['question']
+            question = cookie_value_dictionary['question']
             dictionary_dict = create_random_words_for_user(my_seed, english_excercices)[question]
             dictionary_key = next(iter(dictionary_dict))
             dictionary_list = dictionary_dict[dictionary_key]
