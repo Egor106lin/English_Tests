@@ -22,6 +22,7 @@ def index():
     res = make_response()
     value_of_cookie = request.cookies.get('universal', from_dict_to_cookie({'seed': create_seed(), 'question': 0, 'count': 0}))
     cookie_value_dictionary = from_cookie_to_dict(value_of_cookie)
+    print(cookie_value_dictionary)
     res = make_response(render_template('index.html'))
     res.set_cookie('universal', from_dict_to_cookie(cookie_value_dictionary))
     if request.method == 'POST':
@@ -32,7 +33,9 @@ def index():
 @app.route('/start', methods=['GET', 'POST'])
 def start():
     if request.method == 'POST':
-        return redirect(url_for('words'))
+        res = redirect(url_for('words'))
+        res.set_cookie('universal', from_dict_to_cookie({'seed': create_seed(), 'question': 0, 'count': 0}))
+        return res
     elif request.method == 'GET':
         return(render_template('start.html'))
 
@@ -45,29 +48,15 @@ def words():
     if request.method == 'POST':
         if cookie_value_dictionary['question'] >= 10:
             return redirect(url_for('finish'))
-        elif cookie_value_dictionary['question'] < 10:
+        elif cookie_value_dictionary['question'] < 10:            
             # for name in ['word1', 'word2', 'word3', 'word4']:
             #   answer = request.form.get(name)
             #   if answer != None:
             #       cookie_value_dictionary = check_answer(cookie_value_dictionary, answer, context)
             #   else:
-            #       continue
-            my_seed = cookie_value_dictionary['seed']
-            question =  cookie_value_dictionary['question']
-            print(my_seed, question)
-            dictionary_dict = create_random_words_for_user(my_seed, english_excercices)[question]
-            dictionary_key = next(iter(dictionary_dict))
-            dictionary_list = dictionary_dict[dictionary_key]
-            exercise = {
-                    'number': cookie_value_dictionary['question'] + 1,
-                    'english_word': dictionary_key,
-                    'translate1': dictionary_list[0],
-                    'translate2': dictionary_list[1],
-                    'translate3': dictionary_list[2],
-                    'translate4': dictionary_list[3],
-            }
+            #       continue            
             cookie_value_dictionary['question'] += 1
-            res = make_response(render_template('words.html', **exercise))
+            res = redirect(url_for('words'))
             res.set_cookie('universal', from_dict_to_cookie(cookie_value_dictionary))
             return res
     else:
@@ -76,7 +65,6 @@ def words():
         else:
             my_seed = cookie_value_dictionary['seed']
             question =  cookie_value_dictionary['question']
-            print(my_seed, question)
             dictionary_dict = create_random_words_for_user(my_seed, english_excercices)[question]
             dictionary_key = next(iter(dictionary_dict))
             dictionary_list = dictionary_dict[dictionary_key]
@@ -88,6 +76,7 @@ def words():
                     'translate3': dictionary_list[2],
                     'translate4': dictionary_list[3],
             }
+            print(exercise)
             res = make_response(render_template('words.html', **exercise))
             return res
 
@@ -96,8 +85,9 @@ def words():
 def finish():
     res = make_response()
     if request.method == 'POST':
-        res.set_cookie('universal', expires=0)
-        return redirect(url_for('index'))
+        res = redirect(url_for('index'))
+        res.set_cookie('universal', from_dict_to_cookie({'seed': create_seed(), 'question': 0, 'count': 0}))
+        return res
     elif request.method == 'GET':
         value_of_cookie = request.cookies.get('universal')
         if value_of_cookie == None:
