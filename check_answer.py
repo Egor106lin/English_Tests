@@ -1,5 +1,5 @@
 import unittest
-from words_list import words
+from words_list import english_excercices
 
 
 def check_answer(cookie_value_dictionary: dict, answer: str, context: dict) -> dict:
@@ -28,18 +28,18 @@ class TestCookieFunctions(unittest.TestCase):
         cookie_value_dictionary = {'state': 'words', 'count': 0, 'question': 1}
         answer = 'разность'
         values = []
-        for value in words.values():
+        for value in english_excercices.values():
             values.append(value)  
-        result = check_answer(cookie_value_dictionary, answer, words)
+        result = check_answer(cookie_value_dictionary, answer, english_excercices)
         self.assertEqual(result, {'state': 'words', 'count': 0, 'question': 1})
 
     def test_check_answer_incorrect_answer(self):
         cookie_value_dictionary = {'state': 'words', 'count': 0, 'question': 1}
         answer = 'сумма'
         values = []
-        for value in words.values():
+        for value in english_excercices.values():
             values.append(value)  
-        result = check_answer(cookie_value_dictionary, answer, words)
+        result = check_answer(cookie_value_dictionary, answer, english_excercices)
         self.assertEqual(result, {'state': 'words', 'count': 1, 'question': 1})
 
 
