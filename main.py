@@ -46,9 +46,9 @@ def words():
     value_of_cookie = request.cookies.get('universal', from_dict_to_cookie({'seed': create_seed(), 'question': 0, 'count': 0}))
     cookie_value_dictionary = from_cookie_to_dict(value_of_cookie)
     if request.method == 'POST':
-        if cookie_value_dictionary['question'] >= 10:
+        if cookie_value_dictionary['question'] >= len(english_excercices):
             return redirect(url_for('finish'))
-        elif cookie_value_dictionary['question'] < 10:   
+        elif cookie_value_dictionary['question'] < len(english_excercices):   
             my_seed = cookie_value_dictionary['seed']
             question =  cookie_value_dictionary['question']         
             user_list_for_check = create_random_words_for_user(my_seed, english_excercices)
@@ -60,7 +60,7 @@ def words():
             res.set_cookie('universal', from_dict_to_cookie(cookie_value_dictionary))
             return res
     else:
-        if cookie_value_dictionary['question'] >= 10:
+        if cookie_value_dictionary['question'] >= len(english_excercices):
             return redirect(url_for('finish'))
         else:
             my_seed = cookie_value_dictionary['seed']
