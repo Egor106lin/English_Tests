@@ -34,6 +34,7 @@ button {
     font-size: 120%;
     background-color: #FF8F00;
     margin-bottom: 0%;
+    user-select: none;
 }
 
 .game_name {
@@ -45,7 +46,7 @@ button {
     padding-left: 1%;
 }
 
-.game_type, .game_themes {
+.game_type, .game_themes, .game_time {
     font-family: Calibri;
     font-size: 110%;
     padding-bottom: 1%;
