@@ -10,9 +10,10 @@ from check_answer import check_answer
 from words_list import english_excercices, answers_eng_keys
 
 app = Flask(__name__)
-                    
+
 
 def create_seed() -> int:
+    '''This function generate random int as a seed for user.'''
     seed = random.randint(0, 10**10)
     return seed
 

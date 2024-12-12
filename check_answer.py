@@ -3,9 +3,8 @@ from words_list import english_excercices, answers_eng_keys
 
 
 def check_answer(question: int, answer: str, answers: dict, exerscices: list[dict[list]]) -> bool:
-    '''This function gets cookie value and users's answer, returns cookie value
-    with 'count' +1 if the answer is correct, and returns it without changes if
-    the answer is incorrect'''
+    '''This function gets question number, user answer, dictionary with correct answers,
+    and dictionary with user list of questions. Return True if answer is correct.'''
     eng_answer = next(iter(exerscices[question]))
     return answers[eng_answer] == answer
     
