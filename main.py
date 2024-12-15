@@ -31,7 +31,7 @@ def index():
     return res
 
 
-@app.route('/start', methods=['GET', 'POST'])
+@app.route('/start_words', methods=['GET', 'POST'])
 def start():
     if request.method == 'POST':
         res = redirect(url_for('words'))
@@ -82,7 +82,7 @@ def words():
             return res
 
 
-@app.route('/finish', methods=['GET', 'POST'])
+@app.route('/finish_words', methods=['GET', 'POST'])
 def finish():
     res = make_response()
     if request.method == 'POST':
@@ -99,6 +99,7 @@ def finish():
             res = make_response(render_template('finish.html', result=count))
             return res
         
+
 
 if __name__ == "__main__":
     app.run(debug=True) 
