@@ -27,18 +27,8 @@ def index():
     res = make_response(render_template('index.html'))
     res.set_cookie('universal', from_dict_to_cookie(cookie_value_dictionary))
     if request.method == 'POST':
-        return redirect(url_for('start'))
+        return redirect(url_for('words'))
     return res
-
-
-@app.route('/start_words', methods=['GET', 'POST'])
-def start():
-    if request.method == 'POST':
-        res = redirect(url_for('words'))
-        res.set_cookie('universal', from_dict_to_cookie({'seed': create_seed(), 'question': 0, 'count': 0}))
-        return res
-    elif request.method == 'GET':
-        return(render_template('start.html'))
 
 
 @app.route('/words', methods=['GET', 'POST'])
