@@ -8,7 +8,7 @@ from word_exercise import create_random_words_for_user
 from cookie_set import from_cookie_to_dict, from_dict_to_cookie
 from check_answer import check_answer
 
-from words_list import english_excercices, answers_eng_keys
+from words_list import english_excercices_first_test, answers_eng_keys
 
 app = Flask(__name__)
 
@@ -38,12 +38,12 @@ def words():
     value_of_cookie = request.cookies.get('universal', from_dict_to_cookie({'seed': create_seed(), 'question': 0, 'count': 0}))
     cookie_value_dictionary = from_cookie_to_dict(value_of_cookie)
     if request.method == 'POST':
-        if cookie_value_dictionary['question'] >= len(english_excercices):
+        if cookie_value_dictionary['question'] >= len(english_excercices_first_test):
             return redirect(url_for('finish'))
-        elif cookie_value_dictionary['question'] < len(english_excercices):   
+        elif cookie_value_dictionary['question'] < len(english_excercices_first_test):   
             my_seed = cookie_value_dictionary['seed']
             question =  cookie_value_dictionary['question']         
-            user_list_for_check = create_random_words_for_user(my_seed, english_excercices)
+            user_list_for_check = create_random_words_for_user(my_seed, english_excercices_first_test)
             answer = request.form.get('word')
             if check_answer(question, answer, answers_eng_keys, user_list_for_check):
                 cookie_value_dictionary['count'] += 1
@@ -52,12 +52,12 @@ def words():
             res.set_cookie('universal', from_dict_to_cookie(cookie_value_dictionary))
             return res
     else:
-        if cookie_value_dictionary['question'] >= len(english_excercices):
+        if cookie_value_dictionary['question'] >= len(english_excercices_first_test):
             return redirect(url_for('finish'))
         else:
             my_seed = cookie_value_dictionary['seed']
             question = cookie_value_dictionary['question']
-            dictionary_dict = create_random_words_for_user(my_seed, english_excercices)[question]
+            dictionary_dict = create_random_words_for_user(my_seed, english_excercices_first_test)[question]
             dictionary_key = next(iter(dictionary_dict))
             dictionary_list = dictionary_dict[dictionary_key]
             exercise = {

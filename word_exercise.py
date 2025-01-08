@@ -1,7 +1,7 @@
 from copy import deepcopy
 import random
 
-from words_list import english_excercices
+from words_list import english_excercices_first_test
 import unittest
 
 
@@ -20,9 +20,9 @@ class TestRandomizer(unittest.TestCase):
 
     def test_create_random_words_for_user(self):
         seed = 48499
-        words_test = english_excercices
+        words_test = english_excercices_first_test
         result = create_random_words_for_user(seed, words_test)
-        self.assertEqual(len(english_excercices), len(result))
+        self.assertEqual(len(english_excercices_first_test), len(result))
         self.assertEqual(result[3], {'dictionary': ['развод', 'дикция', 'лист', 'словарь']})
 
 if __name__ == '__main__':

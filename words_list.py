@@ -4,7 +4,7 @@ answers_rus_keys = {
 answers_eng_keys = {
 }
 
-english_excercices = [
+english_excercices_first_test = [
     {'activity': ['деятельность', 'защита', 'упражнение', 'лечение']},
     {'amount': ['сумма', 'разность', 'слон', 'сложение']},
     {'author': ['автор', 'осёл', 'репетитор', 'учитель']},
@@ -107,7 +107,41 @@ english_excercices = [
     {'citizen': ['гражданин', 'городской', 'поселок', 'город']},
 ]
 
-for w in english_excercices:
+english_excercices_second_test = [
+    {'I ___ to go outside yesterday.': ['wanted', 'want', 'will want', 'wants']},
+    {'She ___ her mother tommorow.': ['will visit', 'visited', 'visit', 'visits']},
+    {'He ___ his old brother every day.': ['visits', 'will visit', 'visited', 'visit']},
+    {'They ___ about yesterday news.': ['gossip', 'will gossip', 'gossiped', 'gossips']},
+    {'He says that it ___ yesterday.': ['worked', 'work', 'works', 'will work']},
+    {'Covid ___ seven million people all over the world.': ['killed', 'will kill', 'kill', 'kills']},
+    {'He ___ on his girlfriend birthday after two hours.': ['will go', 'went', 'goes', 'go']},
+    {'She ___ this huge, tasty burger.': ['ate', 'eat', 'eats', 'will eat']},
+    {'It ___ you a lot of energy.': ['gives', 'give', 'will give', 'gave']},
+    {'This car ___ a revolution in industry in nexst four years.': ['will make', 'make', 'makes', 'made']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+    {'': ['', '', '', '']},
+]
+
+
+for w in english_excercices_first_test:
     for k,v in w.items():
         answers_rus_keys[v[0]] = k
         answers_eng_keys[k] = v[0]

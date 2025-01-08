@@ -1,5 +1,5 @@
 import unittest
-from words_list import english_excercices, answers_eng_keys
+from words_list import english_excercices_first_test, answers_eng_keys
 
 
 def check_answer(question: int, answer: str, answers: dict, exerscices: list[dict[list]]) -> bool:
@@ -15,7 +15,7 @@ class TestCookieFunctions(unittest.TestCase):
         question = 1
         answer = 'сумма'
         answers = answers_eng_keys
-        exerscices = english_excercices
+        exerscices = english_excercices_first_test
         result = check_answer(question, answer, answers, exerscices)
         self.assertTrue(result)
 
@@ -23,7 +23,7 @@ class TestCookieFunctions(unittest.TestCase):
         question = 1
         answer = 'слон'
         answers = answers_eng_keys
-        exerscices = english_excercices
+        exerscices = english_excercices_first_test
         result = check_answer(question, answer, answers, exerscices)
         self.assertFalse(result)
 
