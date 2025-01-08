@@ -68,7 +68,6 @@ def words():
                     'translate3': dictionary_list[2],
                     'translate4': dictionary_list[3],
             }
-            print(exercise)
             res = make_response(render_template('words.html', **exercise))
             return res
 

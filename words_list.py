@@ -1,8 +1,6 @@
-answers_rus_keys = {
-}
+answers_eng_keys = {}
 
-answers_eng_keys = {
-}
+answers_second_test = {}
 
 english_excercices_first_test = [
     {'activity': ['деятельность', 'защита', 'упражнение', 'лечение']},
@@ -117,31 +115,35 @@ english_excercices_second_test = [
     {'He ___ on his girlfriend birthday after two hours.': ['will go', 'went', 'goes', 'go']},
     {'She ___ this huge, tasty burger.': ['ate', 'eat', 'eats', 'will eat']},
     {'It ___ you a lot of energy.': ['gives', 'give', 'will give', 'gave']},
-    {'This car ___ a revolution in industry in nexst four years.': ['will make', 'make', 'makes', 'made']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
-    {'': ['', '', '', '']},
+    {'This car ___ a revolution in industry in next four years.': ['will make', 'make', 'makes', 'made']},
+    {'Mike ___ cake on his birthday every year': ['eats', 'eat', 'will eat', 'ate']},
+    {'Users of apple smartphones ___ high quality.': ['love', 'loves', 'loved', 'will love']},
+    {'Next week it ___ the best party of this year': ['will be', 'was', 'is', 'will it']},
+    {'I am really sad about tragedy in our city, that ___ 2 years ago.': ['was', 'were', 'been', 'will be']},
+    {'I ___ English twice a week.': ['study', 'studied', 'will study', 'studies']},
+    {'Our mother ___ us to be brave in our ideas in my childhood.': ['teached', 'teach', 'will teach', 'teachs']},
+    {'I ___ this one only after salad.': ['will eat', 'ate', 'eats', 'eat']},
+    {'He ___ pancakes with honey on breakfast every morning.': ['eats', 'eat', 'ate', 'will eat']},
+    {'I will buy this car and ___ every day.': ['drive', 'drives', 'will drive', 'drove']},
+    {'My dad ___ this home 10 years ago.': ['bought', 'buy', 'will buy', 'was buy']},
+    {'She ___ up and ___ to school every day at 7 am.': ['wakes, goes', 'wake, goes', 'woke, go', 'wake, goes']},
+    {'In future, people ___ new planets.': ['will explore', 'explore', 'explores', 'explored']},
+    {'Peter the Great ___ Saint-Petersburg in 1703.': ['founded', 'found', 'will found', 'find']},
+    {'They ___ in the center of their city every month.': ['walk', 'walks', 'go', 'went']},
+    {'I ___ go to school tommorow, because I feel me bad.': ['will not', 'need', 'will', 'want']},
+    {'Yesterday, I ___ outside with my mother.': ['went', 'was', 'were not', 'go']},
+    {'He ___ go to this shop, because he ___ a lot of time to go here.': ['does not, needs', 'always, needed', 'prefer to, wanted', 'wanted, spent']},
+    {'She ___ celebrate New Year, because she is sick.': ['will not', 'will', 'was', 'is']},
+    {'His father ___ this travel.': ['forbidden', 'will forbidden', 'cancel', 'was cancel']},
+    {'Theu ___ to go here, because there are a lot of insects.': ['did not want', 'wanted', 'wants', 'want']},
 ]
 
 
 for w in english_excercices_first_test:
     for k,v in w.items():
-        answers_rus_keys[v[0]] = k
         answers_eng_keys[k] = v[0]
+
+for w in english_excercices_second_test:
+    for k, v in w.items():
+        answers_second_test[k] = v[0]
+        
