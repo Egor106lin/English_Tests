@@ -11,7 +11,7 @@ def from_cookie_to_dict(cookie_value: str) -> dict:
 
 
 def from_dict_to_cookie(cookie_value_dictionary: dict) -> str:
-    '''This function get dictionary with cookie_value and transform it into a string.'''
+    '''This function get dictionary with cookie value and transform it into a string.'''
     cookie_value_as_json = json.dumps(cookie_value_dictionary)
     cookie_value_as_jsonstring = cookie_value_as_json.encode()
     cookie_value = base64.b64encode(cookie_value_as_jsonstring).decode()

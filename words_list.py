@@ -135,7 +135,7 @@ english_excercices_second_test = [
     {'He ___ go to this shop, because he ___ a lot of time to go here.': ['does not, needs', 'always, needed', 'prefer to, wanted', 'wanted, spent']},
     {'She ___ celebrate New Year, because she is sick.': ['will not', 'will', 'was', 'is']},
     {'His father ___ this travel.': ['forbidden', 'will forbidden', 'cancel', 'was cancel']},
-    {'Theu ___ to go here, because there are a lot of insects.': ['did not want', 'wanted', 'wants', 'want']},
+    {'They ___ to go here, because there are a lot of insects.': ['did not want', 'wanted', 'wants', 'want']},
 ]
 
 
