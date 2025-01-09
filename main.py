@@ -143,7 +143,7 @@ def finish_words():
             count = cookie_value_dictionary['count']
             res = make_response(render_template('finish_words.html', result=count))
             return res
-        
+
 
 @app.route('/finish_simple_tenses', methods=['GET', 'POST'])
 def finish_simple_tenses():
