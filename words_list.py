@@ -2,6 +2,8 @@ answers_eng_keys = {}
 
 answers_second_test = {}
 
+answers_third_test = {}
+
 english_excercices_first_test = [
     {'activity': ['деятельность', 'защита', 'упражнение', 'лечение']},
     {'amount': ['сумма', 'разность', 'слон', 'сложение']},
@@ -40,7 +42,7 @@ english_excercices_first_test = [
     {'honest': ['честный', 'злой', 'дружелюбный', 'скромный']},
     {'hard-working': ['трудолюбивый', 'заносчивый', 'эгоистичный', 'циничный']},
     {'selfish': ['эгоистичный', 'предприимчивый', 'организованный', 'терпеливый']},
-    {'generous': ['надежный', 'серьезный', 'разговорчивый', 'прогрессивный']},
+    {'generous': ['щедрый', 'серьезный', 'разговорчивый', 'прогрессивный']},
     {'talkative': ['разговорчивый', 'непредсказуемый', 'мотивированный', 'приятный']},
     {'self-confident': ['самоуверенный', 'самоотверженный', 'угрюмый', 'аскетичный']},
     {'courageous': ['отважный', 'искренний', 'грубый', 'подлый']},
@@ -139,6 +141,40 @@ english_excercices_second_test = [
 ]
 
 
+english_excercices_third_test = [
+    {'We ___ do our homework.': ['must', 'have to', 'do not have to', 'should']},
+    {'We ___ be late at school.': ['must not', 'do not have to', 'should not', 'must']},
+    {'We ___ be quiet at the lessons.': ['must', 'should', 'have to', 'do not have to']},
+    {'You ___ take your rubbish.': ['must', 'have to', 'should', 'do not have to']},
+    {'Students ___ run in classes.': ['must not', 'do not have to', 'should not', 'must']},
+    {'You ___ feed animals in our zoo!': ['must not', 'must', 'should', 'have to']},
+    {'Your mum ___ wear sun hat when it is hot outside.': ['must', 'has to', 'goes', 'go']},
+    {'You ___ be kind to others.': ['must', 'should', 'have to', 'should not']},
+    {'You ___ be polite with your teachers and parents.': ['must', 'should', 'do not have to', 'have to']},
+    {'We ___ speak loudly at the library.': ['must not', 'should not', 'do not have to', 'must']},
+    {'You ___ see the new film! It is great!': ['should', 'must', 'have to', 'should not']},
+    {'You ___ smoke! It is very bad habit.': ['should not', 'should', 'must not', 'do not have to']},
+    {'Your temperature is high. You ___ call to a doctor.': ['should', 'must', 'have to', 'do not have to']},
+    {'Sally ___ with her parents.': ['should not', 'do not have to', 'have to', 'should']},
+    {'It is so hot outside! You ___ wear a t-shirt.': ['should', 'have to', 'must not', 'should not']},
+    {'You ___ eat here. It is a museum.': ['should not', 'do not have to', 'must', 'should']},
+    {'Tanya ___ visit her grandparents more often.': ['should', 'ate', 'eats', 'eat']},
+    {'You ___ talk to this rude man, it is bad idea.': ['should not', 'should', 'ate', 'have to']},
+    {'Mike ___ take care of your cat.': ['should', 'should not', 'have to', 'must']},
+    {'We ___ help people, who need our help.': ['should', 'do not have to', 'must', 'must not']},
+    {'She ___ wake up and go to school every day at 7 am.': ['has to', 'have to', 'should', 'must']},
+    {'She does not have to write the test tommorow.': ['does not have to', 'should not', 'must not', 'have to']},
+    {'My parents ___ go to supermarket tommorow.': ['have to', 'has to', 'must', 'should not']},
+    {'I ___ get up early everyday.': ['have to', 'has to', 'should not', 'must not']},
+    {'My sister ___ tidy up her room.': ['has to', 'have to', 'must not', 'should not']},
+    {'Jane ___ do her homework.': ['has to', 'have to', 'must not', 'should']},
+    {'I ___ take my car to the garage to get it fix.': ['have to', 'has to', 'must', 'should not']},
+    {'You ___ attend the meeting if you are sick.': ['do not have to', 'have to', 'has to', 'must']},
+    {'We ___ study for our next grammar test.': ['have to', 'has to', 'does not have to', 'should not']},
+    {'Your sister ___ help to your mother.': ['has to', 'have to', 'must not', 'should not']},
+]
+
+
 for w in english_excercices_first_test:
     for k,v in w.items():
         answers_eng_keys[k] = v[0]
@@ -146,4 +182,7 @@ for w in english_excercices_first_test:
 for w in english_excercices_second_test:
     for k, v in w.items():
         answers_second_test[k] = v[0]
-        
+
+for w in english_excercices_third_test:
+    for k, v in w.items():
+        answers_third_test[k] = v[0]
