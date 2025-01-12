@@ -15,11 +15,11 @@
         <img class="card-img-top" src="/static/image/finish.png">
         <div class="card-body d-flex flex-column">
           <h4 class="card-title">Конец игры! Молодец!</h4>
-          <h4 class="card-text">Ваш счёт: {{result}}/30</h4>
-          <p class="card-text">0-10 - плохо</p>
-          <p class="card-text">11-17 - удовлетворительно</p>
-          <p class="card-text">18-25 - хорошо</p>
-          <p class="card-text">26-30 - отлично</p>
+          <h4 class="card-text">Ваш счёт: {{result}}/{{max_result}}</h4>
+          <p class="card-text">{{mark2}} - плохо</p>
+          <p class="card-text">{{mark3}} - удовлетворительно</p>
+          <p class="card-text">{{mark4}} - хорошо</p>
+          <p class="card-text">{{mark5}} - отлично</p>
           <form method="post", action="{{page_name}}">
             <button name="new_game" class="mt-auto btn btn-primary">Новая игра</button>
           </form>

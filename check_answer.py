@@ -1,8 +1,6 @@
 import unittest
 
-from words_list import english_excercices_first_test, answers_eng_keys
-from words_list import english_excercices_second_test, answers_second_test
-
+from words_list import *
 
 
 def check_answer(question: int, answer: str, answers: dict, exerscices: list[dict[list]]) -> bool:

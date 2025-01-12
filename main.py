@@ -8,13 +8,11 @@ from word_exercise import create_random_words_for_user
 from cookie_set import from_cookie_to_dict, from_dict_to_cookie
 
 from check_answer import check_answer
-from words_list import english_excercices_first_test, answers_eng_keys
-
-from words_list import english_excercices_second_test, answers_second_test
-from words_list import english_excercices_third_test, answers_third_test
+from words_list import *
 
 app = Flask(__name__)
 
+# не забудь убрать debug=true когда закончишь сайт!
 
 def create_seed() -> int:
     '''This function generate random int as a seed for user.'''
@@ -22,7 +20,7 @@ def create_seed() -> int:
     return seed
 
 
-def test(page_name: str, exercises_list, answers):
+def test(page_name: str, exercises_list: list[dict[list]], answers: dict):
     res = make_response()
     value_of_cookie = request.cookies.get(page_name, from_dict_to_cookie({'seed': create_seed(), 'question': 0, 'count': 0}))
     cookie_value_dictionary = from_cookie_to_dict(value_of_cookie)
@@ -52,17 +50,17 @@ def test(page_name: str, exercises_list, answers):
             exercise = {
                     'number': cookie_value_dictionary['question'] + 1,
                     'english_word': dictionary_key,
-                    'translate1': dictionary_list[0],
-                    'translate2': dictionary_list[1],
-                    'translate3': dictionary_list[2],
-                    'translate4': dictionary_list[3],
+                    'option1': dictionary_list[0],
+                    'option2': dictionary_list[1],
+                    'option3': dictionary_list[2],
+                    'option4': dictionary_list[3],
                     'form_path': f'/{page_name}'
             }
             res = make_response(render_template('test.html', **exercise))
             return res
 
 
-def finish(page_name: str):
+def finish(page_name: str, max_result: str):
     res = make_response()
     if request.method == 'POST':
         res = redirect(url_for('index'))
@@ -75,7 +73,25 @@ def finish(page_name: str):
         else:
             cookie_value_dictionary = from_cookie_to_dict(value_of_cookie)
             count = cookie_value_dictionary['count']
-            res = make_response(render_template(f'finish.html', result=count))
+            result_feed = {
+                'result': count,
+                'max_result': max_result,
+                'mark2': '',
+                'mark3': '',
+                'mark4': '',
+                'mark5': '',
+            }
+            if max_result == 30:
+                result_feed['mark2'] = '0 - 10'
+                result_feed['mark3'] = '11 - 17'
+                result_feed['mark4'] = '18 - 25'
+                result_feed['mark5'] = '26 - 30'
+            elif max_result == 20:
+                result_feed['mark2'] = '0 - 5'
+                result_feed['mark3'] = '6 - 12'
+                result_feed['mark4'] = '13 - 17'
+                result_feed['mark5'] = '18 - 20'
+            res = make_response(render_template(f'finish.html', **result_feed))
             return res
 
 
@@ -86,28 +102,107 @@ def index():
 
 @app.route('/', methods=['POST'])
 def index_post():
-    test = request.form.get('game_button')
-    return redirect(url_for(test))
+    return redirect(url_for(request.form.get('game_button')))
 
 
 @app.route('/grammar', methods=['GET', 'POST'])
 def grammar():
-    return test('grammar', english_excercices_second_test, answers_second_test)
+    return test('grammar', grammar_test_original, answers_grammar_test)
         
 
 @app.route('/modals', methods=['GET', 'POST'])
 def modals():
-    return test('modals', english_excercices_third_test, answers_third_test)
+    return test('modals', modals_test_original, answers_modals_test)
+
+
+@app.route('/comparisons', methods=['GET', 'POST'])
+def comparisons():
+    return test('comparisons', comparisons_test_original, answers_comparisons_test)
+
+
+@app.route('/there_is_are', methods=['GET', 'POST'])
+def there_is_are():
+    return test('there_is_are', there_is_are_test_original, answers_there_is_are_test)
+
+
+@app.route('/plurals', methods=['GET', 'POST'])
+def plurals():
+    return test('plurals', plurals_test_original, answers_plurals_test)
+
+
+@app.route('/sports_hobbies', methods=['GET', 'POST'])
+def sports_hobbies():
+    return test('sports_hobbies', sports_hobbies_test_original, answers_sports_hobbies_test)
+
+
+@app.route('/house', methods=['GET', 'POST'])
+def house():
+    return test('house', house_test_original, answers_house_test)
+
+
+@app.route('/daily_routine', methods=['GET', 'POST'])
+def daily_routine():
+    return test('daily_routine', daily_routine_test_original, answers_daily_routine_test)
+
+
+@app.route('/shopping', methods=['GET', 'POST'])
+def shopping():
+    return test('shopping', shopping_test_original, answers_shopping_test)
+
+
+@app.route('/life_exp', methods=['GET', 'POST'])
+def life_exp():
+    return test('life_exp', life_exp_test_original, answers_life_exp_test)
 
 
 @app.route('/finish_grammar', methods=['GET', 'POST'])
 def finish_grammar():
-    return finish('grammar')
+    return finish('grammar', 30)
 
 
 @app.route('/finish_modals', methods=['GET', 'POST'])
 def finish_modals():
-    return finish('modals')
+    return finish('modals', 30)
+
+
+@app.route('/finish_comparisons', methods=['GET', 'POST'])
+def finish_comparisons():
+    return finish('comparisons', 30)
+
+
+@app.route('/finish_there_is_are', methods=['GET', 'POST'])
+def finish_there_is_are():
+    return finish('there_is_are', 30)
+
+
+@app.route('/finish_plurals', methods=['GET', 'POST'])
+def finish_plurals():
+    return finish('plurals', 30)
+
+
+@app.route('/finish_sports_hobbies', methods=['GET', 'POST'])
+def finish_sports_hobbies():
+    return finish('sports_hobbies', 20)
+
+
+@app.route('/finish_house', methods=['GET', 'POST'])
+def finish_house():
+    return finish('house', 20)
+
+
+@app.route('/finish_daily_routine', methods=['GET', 'POST'])
+def finish_daily_routine():
+    return finish('daily_routine', 20)
+
+
+@app.route('/finish_shopping', methods=['GET', 'POST'])
+def finish_shopping():
+    return finish('shopping', 20)
+
+
+@app.route('/finish_life_exp', methods=['GET', 'POST'])
+def finish_life_exp():
+    return finish('life_exp', 20)
 
 
 if __name__ == "__main__":
