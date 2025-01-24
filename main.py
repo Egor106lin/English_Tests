@@ -21,6 +21,7 @@ def create_seed() -> int:
 
 
 def test(page_name: str, exercises_list: list[dict[list]], answers: dict):
+    '''This function return page with question and answers and check previous answers.'''
     res = make_response()
     value_of_cookie = request.cookies.get(page_name, from_dict_to_cookie({'seed': create_seed(), 'question': 0, 'count': 0}))
     cookie_value_dictionary = from_cookie_to_dict(value_of_cookie)
@@ -61,6 +62,7 @@ def test(page_name: str, exercises_list: list[dict[list]], answers: dict):
 
 
 def finish(page_name: str, max_result: str):
+    '''This function return page with user's answers count.'''
     res = make_response()
     if request.method == 'POST':
         res = redirect(url_for('index'))
@@ -76,10 +78,6 @@ def finish(page_name: str, max_result: str):
             result_feed = {
                 'result': count,
                 'max_result': max_result,
-                'mark2': '',
-                'mark3': '',
-                'mark4': '',
-                'mark5': '',
             }
             if max_result == 30:
                 result_feed['mark2'] = '0 - 10'
@@ -91,7 +89,7 @@ def finish(page_name: str, max_result: str):
                 result_feed['mark3'] = '6 - 12'
                 result_feed['mark4'] = '13 - 17'
                 result_feed['mark5'] = '18 - 20'
-            res = make_response(render_template(f'finish.html', **result_feed))
+            res = make_response(render_template('finish.html', **result_feed))
             return res
 
 

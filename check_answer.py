@@ -12,35 +12,19 @@ def check_answer(question: int, answer: str, answers: dict, exerscices: list[dic
 
 class TestCookieFunctions(unittest.TestCase):
 
-    def test_check_answer_correct_answer_1_test(self):
-        question = 1
-        answer = 'сумма'
-        answers = answers_eng_keys
-        exerscices = english_excercices_first_test
-        result = check_answer(question, answer, answers, exerscices)
-        self.assertTrue(result)
-
-    def test_check_answer_incorrect_answer_1_test(self):
-        question = 1
-        answer = 'слон'
-        answers = answers_eng_keys
-        exerscices = english_excercices_first_test
-        result = check_answer(question, answer, answers, exerscices)
-        self.assertFalse(result)
-
-    def test_check_answer_correct_answer_2_test(self):
+    def test_check_answer_correct_answer_(self):
         question = 1
         answer = 'will visit'
-        answers = answers_second_test
-        exerscices = english_excercices_second_test
+        answers = answers_grammar_test
+        exerscices = grammar_test_original
         result = check_answer(question, answer, answers, exerscices)
         self.assertTrue(result)
 
-    def test_check_answer_incorrect_answer_2_test(self):
+    def test_check_answer_incorrect_answer_(self):
         question = 1
         answer = 'visited'
-        answers = answers_second_test
-        exerscices = english_excercices_second_test
+        answers = answers_grammar_test
+        exerscices = grammar_test_original
         result = check_answer(question, answer, answers, exerscices)
         self.assertFalse(result)
 
