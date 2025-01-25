@@ -12,7 +12,6 @@ from words_list import *
 
 app = Flask(__name__)
 
-# не забудь убрать debug=true когда закончишь сайт!
 
 def create_seed() -> int:
     '''This function generate random int as a seed for user.'''
@@ -204,4 +203,4 @@ def finish_life_exp():
 
 
 if __name__ == "__main__":
-    app.run(debug=True) 
+    app.run() 
