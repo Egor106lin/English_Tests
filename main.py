@@ -79,15 +79,35 @@ def finish(page_name: str, max_result: str):
                 'max_result': max_result,
             }
             if max_result == 30:
-                result_feed['mark2'] = '0 - 10'
-                result_feed['mark3'] = '11 - 17'
-                result_feed['mark4'] = '18 - 25'
-                result_feed['mark5'] = '26 - 30'
+                result_feed['mark2'] = '0-10'
+                result_feed['mark3'] = '11-17'
+                result_feed['mark4'] = '18-25'
+                result_feed['mark5'] = '26-30'
             elif max_result == 20:
-                result_feed['mark2'] = '0 - 5'
-                result_feed['mark3'] = '6 - 12'
-                result_feed['mark4'] = '13 - 17'
-                result_feed['mark5'] = '18 - 20'
+                result_feed['mark2'] = '0-5'
+                result_feed['mark3'] = '6-12'
+                result_feed['mark4'] = '13-17'
+                result_feed['mark5'] = '18-20'
+            if page_name == 'grammar':
+                result_feed['test_name'] = 'Grammar'
+            elif page_name == 'modals':
+                result_feed['test_name'] = 'Modals'
+            elif page_name == 'comparisons':
+                result_feed['test_name'] = 'Comparisons'
+            elif page_name == 'there_is_are':
+                result_feed['test_name'] = 'There is/are'
+            elif page_name == 'plurals':
+                result_feed['test_name'] = 'Plurals'
+            elif page_name == 'sports_hobbies':
+                result_feed['test_name'] = 'Sports & Hobbies'
+            elif page_name == 'house':
+                result_feed['test_name'] = 'House'
+            elif page_name == 'daily_routine':
+                result_feed['test_name'] = 'Daily routine'
+            elif page_name == 'shopping':
+                result_feed['test_name'] = 'Shopping'
+            elif page_name == 'life_exp':
+                result_feed['test_name'] = 'Life experience'
             res = make_response(render_template('finish.html', **result_feed))
             return res
 
