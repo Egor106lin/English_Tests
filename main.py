@@ -75,16 +75,16 @@ def finish(page_name: str, max_result: str):
             cookie_value_dictionary = from_cookie_to_dict(value_of_cookie)
             count = cookie_value_dictionary['count']
             test_names = {
-                'grammar': 'Grammar',
-                'modals': 'Grammar',
-                'comparisons': 'Grammar',
-                'there_is_are': 'Grammar',
-                'plurals': 'Plurals',
-                'sports_hobbies': 'Sports & Hobbies',
-                'house': 'House',
-                'daily_routine': 'Daily routine',
-                'shopping': 'Shopping',
-                'life_exp': 'Life experience',
+                'grammar': 'Простые времена',
+                'modals': 'Модальные глаголы',
+                'comparisons': 'Степени сравнения прилагательных',
+                'there_is_are': 'Конктркции There is/are',
+                'plurals': 'Грамматическое число',
+                'sports_hobbies': 'Спорт и хобби',
+                'house': 'Дом',
+                'daily_routine': 'Ежедневная рутина',
+                'shopping': 'Шоппинг',
+                'life_exp': 'Жизненный опыт',
             }
             result_feed = {
                 'result': count,
