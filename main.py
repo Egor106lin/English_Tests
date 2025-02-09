@@ -78,7 +78,7 @@ def finish(page_name: str, max_result: str):
                 'grammar': 'Простые времена',
                 'modals': 'Модальные глаголы',
                 'comparisons': 'Степени сравнения прилагательных',
-                'there_is_are': 'Конктркции There is/are',
+                'there_is_are': 'Конструкции There is/are',
                 'plurals': 'Грамматическое число',
                 'sports_hobbies': 'Спорт и хобби',
                 'house': 'Дом',
