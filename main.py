@@ -4,11 +4,11 @@ from flask import request
 from flask import render_template, make_response, redirect, url_for
 import random
 
-from word_exercise import create_random_words_for_user
+from randomizer import create_random_words_for_user
 from cookie_set import from_cookie_to_dict, from_dict_to_cookie
 
 from check_answer import check_answer
-from words_list import *
+from exercises import *
 
 app = Flask(__name__)
 
@@ -75,7 +75,7 @@ def finish(page_name: str, max_result: str):
             cookie_value_dictionary = from_cookie_to_dict(value_of_cookie)
             count = cookie_value_dictionary['count']
             test_names = {
-                'grammar': 'Простые времена',
+                'english_tenses': 'Простые времена',
                 'modals': 'Модальные глаголы',
                 'comparisons': 'Степени сравнения прилагательных',
                 'there_is_are': 'Конструкции There is/are',
@@ -112,12 +112,12 @@ def index():
 
 @app.route('/', methods=['POST'])
 def index_post():
-    return redirect(url_for(request.form.get('game_button')))
+    return redirect(url_for(request.form.get('test_button')))
 
 
-@app.route('/grammar', methods=['GET', 'POST'])
-def grammar():
-    return test('grammar', grammar_test_original, answers_grammar_test)
+@app.route('/english_tenses', methods=['GET', 'POST'])
+def english_tenses():
+    return test('english_tenses', english_tenses_test_original, answers_english_tenses_test)
         
 
 @app.route('/modals', methods=['GET', 'POST'])
@@ -165,9 +165,9 @@ def life_exp():
     return test('life_exp', life_exp_test_original, answers_life_exp_test)
 
 
-@app.route('/finish_grammar', methods=['GET', 'POST'])
-def finish_grammar():
-    return finish('grammar', 30)
+@app.route('/finish_english_tenses', methods=['GET', 'POST'])
+def finish_english_tenses():
+    return finish('english_tenses', 30)
 
 
 @app.route('/finish_modals', methods=['GET', 'POST'])

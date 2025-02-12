@@ -1,4 +1,4 @@
-answers_grammar_test = {}
+answers_english_tenses_test = {}
 answers_modals_test = {}
 answers_comparisons_test = {}
 answers_there_is_are_test = {}
@@ -9,7 +9,7 @@ answers_daily_routine_test = {}
 answers_shopping_test = {}
 answers_life_exp_test = {}
 
-grammar_test_original = [
+english_tenses_test_original = [
     {'I ___ to go outside yesterday.': ['wanted', 'want', 'will want', 'wants']},
     {'She ___ her mother tommorow.': ['will visit', 'visited', 'visit', 'visits']},
     {'He ___ his old brother every day.': ['visits', 'will visit', 'visited', 'visit']},
@@ -291,9 +291,9 @@ life_exp_test_original = [
 ]
 
 
-for w in grammar_test_original:
+for w in english_tenses_test_original:
     for k, v in w.items():
-        answers_grammar_test[k] = v[0]
+        answers_english_tenses_test[k] = v[0]
 
 for w in modals_test_original:
     for k, v in w.items():

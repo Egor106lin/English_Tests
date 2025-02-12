@@ -1,6 +1,6 @@
 import unittest
 
-from words_list import *
+from exercises import *
 
 
 def check_answer(question: int, answer: str, answers: dict, exerscices: list[dict[list]]) -> bool:
@@ -15,16 +15,16 @@ class TestCookieFunctions(unittest.TestCase):
     def test_check_answer_correct_answer_(self):
         question = 1
         answer = 'will visit'
-        answers = answers_grammar_test
-        exerscices = grammar_test_original
+        answers = answers_english_tenses_test
+        exerscices = english_tenses_test_original
         result = check_answer(question, answer, answers, exerscices)
         self.assertTrue(result)
 
     def test_check_answer_incorrect_answer_(self):
         question = 1
         answer = 'visited'
-        answers = answers_grammar_test
-        exerscices = grammar_test_original
+        answers = answers_english_tenses_test
+        exerscices = english_tenses_test_original
         result = check_answer(question, answer, answers, exerscices)
         self.assertFalse(result)
 
