@@ -14,13 +14,13 @@ app = Flask(__name__)
 
 
 def create_seed() -> int:
-    '''This function generate random int as a seed for user.'''
+    '''Эта функция генерирует случайное число от 0 до 10000000000.'''
     seed = random.randint(0, 10**10)
     return seed
 
 
 def test(page_name: str, exercises_list: list[dict[list]], answers: dict):
-    '''This function return page with question and answers and check previous answers.'''
+    '''Эта фукнция рендерит страницу с вопросом и вариантами ответов, а также проверяет ответ на предыдущий вопрос.'''
     res = make_response()
     value_of_cookie = request.cookies.get(page_name, from_dict_to_cookie({'seed': create_seed(), 'question': 0, 'count': 0}))
     cookie_value_dictionary = from_cookie_to_dict(value_of_cookie)
@@ -61,7 +61,7 @@ def test(page_name: str, exercises_list: list[dict[list]], answers: dict):
 
 
 def finish(page_name: str, max_result: str):
-    '''This function return page with user's answers count.'''
+    '''Эта функция рендерит страницу с результатом теста и очищает куку.'''
     res = make_response()
     if request.method == 'POST':
         res = redirect(url_for('index'))

@@ -6,7 +6,7 @@ import unittest
 
 
 def create_random_words_for_user(seed: int, words: list[dict[list]]) -> list[dict[list]]:
-    '''This function gets list of words and mix it. Returns mixed list.'''
+    '''Эта фукнция перемешивает оригинальный список заданий и возвращает перемешанный вариант для пользователя.'''
     mixed_list = deepcopy(words)
     randomizer = random.Random(seed)
     randomizer.shuffle(mixed_list)

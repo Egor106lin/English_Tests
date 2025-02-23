@@ -4,14 +4,14 @@ import json
 import unittest
 
 def from_cookie_to_dict(cookie_value: str) -> dict:
-    '''This function get cookie value and transform it into a dictionary'''
+    '''Эта функция шифрует куку.'''
     cookie_value_as_jsonstring = base64.b64decode(cookie_value).decode()
     cookie_value_dictionary = json.loads(cookie_value_as_jsonstring)
     return cookie_value_dictionary
 
 
 def from_dict_to_cookie(cookie_value_dictionary: dict) -> str:
-    '''This function get dictionary with cookie value and transform it into a string.'''
+    '''Эта функция расшифровывает куку.'''
     cookie_value_as_json = json.dumps(cookie_value_dictionary)
     cookie_value_as_jsonstring = cookie_value_as_json.encode()
     cookie_value = base64.b64encode(cookie_value_as_jsonstring).decode()

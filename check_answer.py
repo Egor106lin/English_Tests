@@ -4,8 +4,7 @@ from exercises import *
 
 
 def check_answer(question: int, answer: str, answers: dict, exerscices: list[dict[list]]) -> bool:
-    '''This function gets question number, user answer, dictionary with correct answers,
-    and dictionary with user list of questions. Return True if answer is correct.'''
+    '''Эта фукнция проверяет ответ пользователя на вопрос в тесте.'''
     answer_to_check = next(iter(exerscices[question]))
     return answers[answer_to_check] == answer
     
